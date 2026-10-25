@@ -160,7 +160,7 @@ const detailModal=document.getElementById("product-modal"),detailBackdrop=docume
 const categoryPhotos=[
 {src:"https://toppng.com/uploads/preview/gold-pendant-11530924736kg3bnk0hkz.png",alt:"Gold snake pendant necklace"},
 {src:"https://toppng.com/uploads/preview/diamond-ring-jewelry-brilliant-koltso-ukrashenie-gold-diamond-ring-11563383452jbdoofk0hl.png",alt:"Gold ring with gemstone"},
-{src:"https://img.magnific.com/premium-psd/luxurious-gold-cuban-link-chain-bracelet-men-women_1043913-19976.jpg?q=80&semt=ais_hybrid&w=740",alt:"Gold chain bracelet"},
+{src:"https://favpng.com/png_view/gold-bracelet-bangle-gold-jewellery-jewelry-design-png/cGW4UJG0",alt:"Gold chain bracelet"},
 {src:"https://www.pngall.com/wp-content/uploads/15/Hoop-Earrings-PNG-Free-Image.png",alt:"Gold hoop earrings"},
 {src:"https://media.douglas.nl/medias/https-media-prod-eu-1.mirakl.net-SOURCE-4ed7414f5e704e59af00267e34c487f6.png?context=bWFzdGVyfGltYWdlc3w0NjUwMzV8aW1hZ2UvcG5nfGFHUTBMMmcwWlM4eE5ETTBOemt3TnpRMk5USTBOaTlvZEhSd2N6b3ZMMjFsWkdsaExYQnliMlF0WlhVdE1TNXRhWEpoYTJ3dWJtVjBMMU5QVlZKRFJTODBaV1EzTkRFMFpqVmxOekEwWlRVNVlXWXdNREkyTjJVek5HTTBPRGRtTmd8NzM3NDA3MGVkZGU0NjRmZjk4N2IyNmY4Mzg0ZGEzNWQ1NjE2MWFhOTZmZmJiOTcxM2EwNDkwZTQwNTA3YmVlMA&grid=true",alt:"Gold hair clip"},
 {src:"https://toppng.com/uploads/preview/persol-round-sunglasses-115688732458pi1fxz87a.png",alt:"Gold frame sunglasses"}
@@ -266,6 +266,12 @@ const heroArt=document.querySelector(".hero-art"),jewelScene=document.querySelec
 </script>
 </body></html>
 <style>
+/* Match every category icon to the transparent earring cutout style */
+.category-tile .category-lux-photo{display:block!important;width:clamp(92px,12vw,142px)!important;height:clamp(92px,12vw,142px)!important;object-fit:contain!important;object-position:center!important;padding:8px!important;background:transparent!important;border:1px solid #c6a36a!important;border-radius:50%!important;mix-blend-mode:normal!important;filter:drop-shadow(0 5px 8px #0009) saturate(1.12) contrast(1.06)!important;}
+.product-visual{display:flex!important;align-items:center!important;justify-content:center!important;background:radial-gradient(ellipse at center,#1c1914,#0d0c0a 72%)!important;padding:12px!important;}
+.product-visual img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;background:transparent!important;mix-blend-mode:normal!important;filter:drop-shadow(0 8px 12px #0009) saturate(1.12) contrast(1.06)!important;}
+@media(max-width:800px){.category-tile .category-lux-photo{width:76px!important;height:76px!important;padding:6px!important}.product-visual{padding:7px!important}}
+
 
 
 /* Luxury reference match: circular photo categories, premium product cards, gold cart buttons */
