@@ -51,7 +51,41 @@ nav{font-size:13px;font-weight:400;letter-spacing:0}
 .category-tile span,.benefit,.checkout-form label{font-weight:400}
 @media(max-width:800px){.brand{font-size:36px}.hero h1{font-size:clamp(36px,8vw,46px);line-height:1.5;letter-spacing:-.7px}.eyebrow{letter-spacing:1.1px}.section-head h2{font-size:27px}}
 
-body,button,input,select,textarea{font-family:"Inter","Alexandria",Arial,sans-serif}html[lang="ar"] body,html[lang="ar"] button,html[lang="ar"] input,html[lang="ar"] select,html[lang="ar"] textarea{font-family:"Alexandria",Tahoma,sans-serif}.brand,.scene-stamp,.story-art{font-family:"Cormorant Garamond",Georgia,serif}html[lang="en"] .hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(52px,6vw,82px);line-height:1.05;letter-spacing:-.5px}html[lang="en"] .eyebrow{letter-spacing:2px}</style>
+body,button,input,select,textarea{font-family:"Inter","Alexandria",Arial,sans-serif}html[lang="ar"] body,html[lang="ar"] button,html[lang="ar"] input,html[lang="ar"] select,html[lang="ar"] textarea{font-family:"Alexandria",Tahoma,sans-serif}.brand,.scene-stamp,.story-art{font-family:"Cormorant Garamond",Georgia,serif}html[lang="en"] .hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(52px,6vw,82px);line-height:1.05;letter-spacing:-.5px}html[lang="en"] .eyebrow{letter-spacing:2px}
+/* Chatil Studio finish: cinematic depth and refined motion */
+:root{--motion-ease:cubic-bezier(.18,.72,.2,1)}
+::selection{background:#d7b477;color:#15110b}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #e5c586;outline-offset:4px}
+.header{backdrop-filter:blur(14px);background:linear-gradient(180deg,#10100fe8,#10100fb8);position:sticky;top:0}
+.hero{perspective:1400px}
+.hero-copy{animation:heroCopyIn .9s var(--motion-ease) both}
+.hero-art{transform-style:preserve-3d;transition:transform .45s var(--motion-ease),border-color .4s;will-change:transform}
+.jewel-scene{transform-style:preserve-3d;transition:transform .45s var(--motion-ease)}
+.jewel-scene svg{transform-origin:50% 55%;filter:drop-shadow(0 26px 26px #000c) drop-shadow(0 0 20px #d7b47716)}
+.hero-art:hover{border-color:#d7b47755}
+.hero-art:hover .jewel-scene svg{filter:drop-shadow(0 30px 30px #000d) drop-shadow(0 0 26px #d7b47725)}
+.product{border-radius:2px;backface-visibility:hidden}
+.product-visual{isolation:isolate}
+.product-visual:after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(120deg,transparent 25%,#fff1 48%,transparent 68%);transform:translateX(-120%);transition:transform .8s var(--motion-ease);pointer-events:none}
+.product:hover .product-visual:after{transform:translateX(120%)}
+.product-visual svg{transform-origin:50% 55%;backface-visibility:hidden}
+.add,.cart-btn,.primary,.secondary{position:relative;overflow:hidden}
+.add:after,.cart-btn:after,.primary:after,.secondary:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,#ffffff25 48%,transparent 72%);transform:translateX(-130%);transition:transform .7s var(--motion-ease);pointer-events:none}
+.add:hover:after,.cart-btn:hover:after,.primary:hover:after,.secondary:hover:after{transform:translateX(130%)}
+.category-tile{transform-style:preserve-3d}
+.category-tile svg{transition:transform .4s var(--motion-ease),filter .4s}
+.category-tile:hover svg{transform:translateY(-3px) rotateY(18deg) scale(1.08);filter:drop-shadow(0 0 8px #d7b47755)}
+.story-art{transform-style:preserve-3d}
+.story-art:after{animation:storyOrbit 10s linear infinite}
+.toast{backdrop-filter:blur(12px);box-shadow:0 10px 35px #0007}
+.drawer{backdrop-filter:blur(20px)}
+.cart-item{animation:cartItemIn .25s var(--motion-ease) both}
+@keyframes heroCopyIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes storyOrbit{from{transform:rotate(0) scale(1)}to{transform:rotate(360deg) scale(1)}}
+@keyframes cartItemIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:800px){.header{position:relative}.hero-art{transform:none!important}.hero-copy{animation-duration:.6s}.story-art:after{width:140px;height:140px}}
+@media(prefers-reduced-motion:reduce){.hero-copy{animation:none}.story-art:after{animation:none}.hero-art,.jewel-scene,.jewel-scene svg,.product,.product-visual svg{transition:none!important;animation:none!important}}
+</style>
 </head>
 <body>
 <div class="announcement">نسخة تجريبية · المنتجات والأسعار الحالية للاختبار · سوق مصر</div>
@@ -105,15 +139,15 @@ let products=[
 const money=n=>new Intl.NumberFormat("ar-EG",{maximumFractionDigits:0}).format(n)+" ج.م";
 const art=(kind)=>{if(kind==="earring")return '<svg viewBox="0 0 120 145" fill="none" aria-hidden="true"><path d="M60 24c-17 0-29 13-29 30 0 19 13 32 29 32s29-13 29-32C89 37 77 24 60 24Z" stroke="#b58b54" stroke-width="4"/><path d="M60 87v15" stroke="#b58b54" stroke-width="4"/><path d="M60 102c-15 0-25 9-25 21 0 8 8 12 25 12s25-4 25-12c0-12-10-21-25-21Z" fill="#d4b176" stroke="#a77d43" stroke-width="2"/></svg>';if(kind==="necklace")return '<svg viewBox="0 0 120 145" fill="none" aria-hidden="true"><path d="M22 20C25 70 38 98 60 108 82 98 95 70 98 20" stroke="#b58b54" stroke-width="3.5"/><path d="M60 101v13" stroke="#b58b54" stroke-width="3"/><path d="M60 114l10 10-10 10-10-10 10-10Z" fill="#d8b56d" stroke="#a77d43" stroke-width="2"/></svg>';if(kind==="bracelet")return '<svg viewBox="0 0 120 145" fill="none" aria-hidden="true"><ellipse cx="60" cy="73" rx="31" ry="47" transform="rotate(-24 60 73)" stroke="#b58b54" stroke-width="7"/><circle cx="80" cy="108" r="7" fill="#d7b16c" stroke="#a77d43" stroke-width="2"/></svg>';return '<svg viewBox="0 0 120 145" fill="none" aria-hidden="true"><ellipse cx="60" cy="83" rx="25" ry="33" stroke="#b58b54" stroke-width="9"/><path d="M43 53l7-10h20l7 10" stroke="#d5b16d" stroke-width="5"/><path d="M50 43l10-13 10 13" fill="#d5b16d" stroke="#a77d43" stroke-width="2"/></svg>'};
 const defaults={earrings:{bg:"#ead7c4",kind:"earring",tag:"اختيارنا"},necklaces:{bg:"#e6e0d2",kind:"necklace",tag:"الأكثر طلبًا"},bracelets:{bg:"#e6d3ce",kind:"bracelet",tag:"جديد"},rings:{bg:"#d9dfd2",kind:"ring",tag:""}};
-function renderProducts(){const grid=document.getElementById("product-grid");grid.innerHTML=products.map(p=>'<article class="product"><div class="product-visual" style="--bg:'+p.bg+'">'+(p.tag?'<span class="tag">'+p.tag+'</span>':'')+art(p.kind)+'</div><h3>'+p.name+'</h3><p class="desc">'+p.desc+'</p><div class="product-bottom"><span class="price">'+money(p.price)+'</span><button class="add" data-add="'+p.slug+'">+ أضيفي للسلة</button></div></article>').join("")}
+function renderProducts(){const grid=document.getElementById("product-grid");grid.innerHTML=products.map(p=>'<article class="product"><div class="product-visual" style="--bg:'+p.bg+'">'+(p.tag?'<span class="tag">'+p.tag+'</span>':'')+art(p.kind)+'</div><h3>'+p.name+'</h3><p class="desc">'+p.desc+'</p><div class="product-bottom"><span class="price">'+money(p.price)+'</span><button class="add" data-add="'+p.slug+'">+ أضيفي للسلة</button></div></article>').join("");if(typeof setLanguage==="function")setLanguage(currentLanguage)}
 async function loadCatalog(){try{const res=await fetch(SUPABASE_URL+"/rest/v1/products?select=slug,name_ar,description_ar,price_egp,category,is_active&is_active=eq.true&order=created_at.asc",{headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY}});if(!res.ok)throw new Error("catalog");const rows=await res.json();if(!Array.isArray(rows)||!rows.length)throw new Error("empty");products=rows.map(p=>{const d=defaults[p.category]||defaults.earrings;return {slug:p.slug,name:p.name_ar,desc:p.description_ar||"",price:Number(p.price_egp),tag:d.tag,bg:d.bg,kind:d.kind}});renderProducts();renderCart();setLanguage(currentLanguage)}catch(e){/* Keep the local catalogue visible if the database is temporarily unavailable. */}}
 const drawer=document.getElementById("drawer"),backdrop=document.getElementById("backdrop"),toast=document.getElementById("toast"),checkoutForm=document.getElementById("checkout-form"),checkoutButton=document.getElementById("checkout"),feedback=document.getElementById("checkout-feedback");
 let cart={};
 function notify(s){toast.textContent=s;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2100)}
 function openCart(){drawer.classList.add("open");backdrop.classList.add("open");drawer.setAttribute("aria-hidden","false")}
 function closeCart(){drawer.classList.remove("open");backdrop.classList.remove("open");drawer.setAttribute("aria-hidden","true")}
-function renderCart(){const entries=products.filter(p=>cart[p.slug]);const count=entries.reduce((n,p)=>n+cart[p.slug],0);const total=entries.reduce((n,p)=>n+p.price*cart[p.slug],0);document.getElementById("cart-count").textContent=count;document.getElementById("cart-header-total").textContent=money(total);document.getElementById("cart-total").textContent=money(total);document.getElementById("cart-items").innerHTML=entries.length?entries.map(p=>'<div class="cart-item"><div><strong>'+p.name+'</strong><small>'+money(p.price)+' للقطعة</small></div><div class="qty"><button data-change="'+p.slug+'" data-delta="-1" aria-label="تقليل الكمية">−</button><span>'+cart[p.slug]+'</span><button data-change="'+p.slug+'" data-delta="1" aria-label="زيادة الكمية">+</button></div></div>').join(""):'<div class="empty">لسه السلة فاضية ♡<br>اختاري القطع اللي عجبتك.</div>';checkoutButton.disabled=!count;checkoutButton.style.opacity=count?1:.55}
-document.getElementById("product-grid").addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(!b)return;const slug=b.dataset.add;cart[slug]=(cart[slug]||0)+1;renderCart();notify("اتضافت للسلة ♡")});
+function renderCart(){const entries=products.filter(p=>cart[p.slug]);const count=entries.reduce((n,p)=>n+cart[p.slug],0);const total=entries.reduce((n,p)=>n+p.price*cart[p.slug],0);document.getElementById("cart-count").textContent=count;document.getElementById("cart-header-total").textContent=money(total);document.getElementById("cart-total").textContent=money(total);document.getElementById("cart-items").innerHTML=entries.length?entries.map(p=>'<div class="cart-item"><div><strong>'+p.name+'</strong><small>'+money(p.price)+' للقطعة</small></div><div class="qty"><button data-change="'+p.slug+'" data-delta="-1" aria-label="تقليل الكمية">−</button><span>'+cart[p.slug]+'</span><button data-change="'+p.slug+'" data-delta="1" aria-label="زيادة الكمية">+</button></div></div>').join(""):'<div class="empty">لسه السلة فاضية ♡<br>اختاري القطع اللي عجبتك.</div>';checkoutButton.disabled=!count;checkoutButton.style.opacity=count?1:.55;if(typeof setLanguage==="function")setLanguage(currentLanguage)}
+document.getElementById("product-grid").addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(!b)return;const slug=b.dataset.add;cart[slug]=(cart[slug]||0)+1;renderCart();notify(currentLanguage==="en"?"Added to cart ♡":"اتضافت للسلة ♡")});
 document.getElementById("cart-items").addEventListener("click",e=>{const b=e.target.closest("[data-change]");if(!b)return;const slug=b.dataset.change;cart[slug]=(cart[slug]||0)+Number(b.dataset.delta);if(cart[slug]<=0)delete cart[slug];renderCart()});
 document.getElementById("open-cart").addEventListener("click",openCart);document.getElementById("close-cart").addEventListener("click",closeCart);backdrop.addEventListener("click",closeCart);document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
 checkoutButton.addEventListener("click",()=>{if(!Object.keys(cart).length)return;checkoutForm.hidden=false;checkoutButton.hidden=true;feedback.hidden=true;document.getElementById("cart-items").style.display="none"});
@@ -143,6 +177,8 @@ const translations={
 "راجعي رقم الموبايل وحاولي تاني.":"Please check your phone number and try again.","شكرًا لاهتمامك بـ Chatil ♡ — الاشتراك في القائمة البريدية هيتفعل قريبًا.":"Thanks for your interest in Chatil ♡ — newsletter sign-up will be available soon.",
 "القاهرة":"Cairo","الجيزة":"Giza","الإسكندرية":"Alexandria","القليوبية":"Qalyubia","البحيرة":"Beheira","مطروح":"Matrouh","كفر الشيخ":"Kafr El Sheikh","الغربية":"Gharbia","المنوفية":"Monufia","الدقهلية":"Dakahlia","دمياط":"Damietta","بورسعيد":"Port Said","الإسماعيلية":"Ismailia","السويس":"Suez","الشرقية":"Sharqia","شمال سيناء":"North Sinai","جنوب سيناء":"South Sinai","بني سويف":"Beni Suef","الفيوم":"Fayoum","المنيا":"Minya","أسيوط":"Assiut","سوهاج":"Sohag","قنا":"Qena","الأقصر":"Luxor","أسوان":"Aswan","البحر الأحمر":"Red Sea","الوادي الجديد":"New Valley"
 };
+
+Object.assign(translations,{"تقليل الكمية":"Decrease quantity","زيادة الكمية":"Increase quantity","افتح سلة التسوق":"Open shopping cart","إغلاق السلة":"Close cart","الصفحة الرئيسية":"Home","القائمة الرئيسية":"Main navigation","مميزات Chatil":"Why Chatil","تسوّقي حسب الفئة":"Shop by category","للقطعة":"per item","اتضافت للسلة ♡":"Added to cart ♡","نسخة تجريبية · المنتجات والأسعار الحالية للاختبار · سوق مصر":"Demo store · Test products and prices · Egypt"});
 const originalText=new Map();
 let currentLanguage="en";
 function setLanguage(language){
@@ -150,28 +186,31 @@ function setLanguage(language){
  document.documentElement.lang=language;
  document.documentElement.dir=language==="ar"?"rtl":"ltr";
  document.body.classList.toggle("arabic-mode",language==="ar");
- document.getElementById("language-toggle").textContent=language==="en"?"العربية":"English";
+ const toggle=document.getElementById("language-toggle");
+ if(toggle)toggle.textContent=language==="en"?"العربية":"English";
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
  const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
  nodes.forEach(node=>{
   if(!originalText.has(node))originalText.set(node,node.nodeValue);
-  const original=originalText.get(node).trim();
-  if(!original)return;
-  let translated=original;
+  const raw=originalText.get(node),trimmed=raw.trim();
+  if(!trimmed)return;
+  let translated=trimmed;
   if(language==="en"){
-   if(translations[original])translated=translations[original];
-   else {
-    for(const [ar,en] of Object.entries(translations)){
-     if(original.includes(ar)){translated=translated.replace(ar,en)}
-    }
-   }
+   if(translations[trimmed])translated=translations[trimmed];
+   else for(const [ar,en] of Object.entries(translations)){if(trimmed.includes(ar))translated=translated.split(ar).join(en)}
   }
-  node.nodeValue=node.nodeValue.replace(node.nodeValue.trim(),translated);
+  const lead=(raw.match(/^\s*/)||[""])[0],trail=(raw.match(/\s*$/)||[""])[0];
+  node.nodeValue=lead+translated+trail;
  });
  document.querySelectorAll("[placeholder]").forEach(el=>{
   if(!el.dataset.arPlaceholder)el.dataset.arPlaceholder=el.placeholder;
   el.placeholder=language==="en"?(translations[el.dataset.arPlaceholder]||el.dataset.arPlaceholder):el.dataset.arPlaceholder;
  });
+ document.querySelectorAll("[aria-label]").forEach(el=>{
+  if(!el.dataset.arLabel)el.dataset.arLabel=el.getAttribute("aria-label");
+  el.setAttribute("aria-label",language==="en"?(translations[el.dataset.arLabel]||el.dataset.arLabel):el.dataset.arLabel);
+ });
+ document.title=language==="en"?"Chatil Accessories — Details in Gold":"Chatil Accessories — تفاصيل من ذهب";
 }
 document.getElementById("language-toggle").addEventListener("click",()=>setLanguage(currentLanguage==="en"?"ar":"en"));
 
@@ -179,5 +218,6 @@ document.getElementById("year").textContent=new Date().getFullYear();renderProdu
 const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");revealObserver.unobserve(entry.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
 document.querySelectorAll(".product").forEach(card=>{card.addEventListener("pointermove",e=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches||innerWidth<801)return;const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;card.style.transform="perspective(900px) rotateX("+((.5-y)*5)+"deg) rotateY("+((x-.5)*6)+"deg) translateY(-5px)"});card.addEventListener("pointerleave",()=>{card.style.transform=""})});
+const heroArt=document.querySelector(".hero-art"),jewelScene=document.querySelector(".jewel-scene");if(heroArt&&jewelScene){heroArt.addEventListener("pointermove",e=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches||innerWidth<801)return;const r=heroArt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;heroArt.style.transform="rotateX("+((.5-y)*3)+"deg) rotateY("+((x-.5)*4)+"deg)";jewelScene.style.transform="translate3d("+((x-.5)*10)+"px,"+((y-.5)*8)+"px,20px)"});heroArt.addEventListener("pointerleave",()=>{heroArt.style.transform="";jewelScene.style.transform=""})}
 </script>
 </body></html>
