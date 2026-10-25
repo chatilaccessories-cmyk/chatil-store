@@ -87,6 +87,62 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(prefers-reduced-motion:reduce){.hero-copy{animation:none}.story-art:after{animation:none}.hero-art,.jewel-scene,.jewel-scene svg,.product,.product-visual svg{transition:none!important;animation:none!important}}
 
 .product{cursor:pointer;transition:transform .3s,border-color .3s,box-shadow .3s}.product:hover{transform:translateY(-5px);border-color:#b99760;box-shadow:0 16px 35px #0002}.product-modal-backdrop{position:fixed;inset:0;background:#050505c9;backdrop-filter:blur(8px);z-index:80}.product-modal{position:fixed;z-index:81;left:50%;top:50%;transform:translate(-50%,-50%);width:min(900px,calc(100% - 28px));max-height:min(88vh,800px);overflow:auto;background:#151412;border:1px solid #b9976059;box-shadow:0 30px 100px #000b;display:grid;grid-template-columns:1fr 1fr;color:#f7f1e8;padding:28px;gap:28px}.product-modal[hidden],.product-modal-backdrop[hidden]{display:none!important}.product-modal-close{position:absolute;right:12px;top:8px;background:transparent;color:#f7f1e8;border:0;font-size:32px;z-index:2}.detail-visual{background:radial-gradient(circle,#342a1c,#1b1915 68%);min-height:380px;display:grid;place-items:center;position:relative;overflow:hidden}.detail-visual:after{content:"";position:absolute;inset:12px;border:1px solid #d4b47733;pointer-events:none}.detail-visual svg{width:min(72%,250px);height:270px;filter:drop-shadow(0 20px 22px #0009);animation:detailFloat 5s ease-in-out infinite}.detail-info h2{font-size:28px;margin:4px 0}.detail-info>p{color:#b5ada2;font-size:13px}.detail-price{font-size:22px;font-weight:700;color:#e4c98e;margin:12px 0 18px}.option-label{display:block;font-size:12px;color:#d8c6a3;margin:15px 0 8px}.swatches{display:flex;gap:10px;flex-wrap:wrap}.swatch{display:flex;align-items:center;gap:7px;background:#211f1b;color:#f7f1e8;border:1px solid #ffffff24;padding:8px 11px;font-size:12px}.swatch.active{border-color:#e4c98e;box-shadow:0 0 0 1px #e4c98e}.swatch-dot{width:16px;height:16px;border-radius:50%;border:1px solid #ffffff55}.detail-select{width:100%;padding:12px;background:#211f1b;color:#f7f1e8;border:1px solid #ffffff28;font:inherit;font-size:13px}.detail-qty{display:flex;align-items:center;gap:14px}.detail-qty button{width:38px;height:38px;border:1px solid #ffffff30;background:#211f1b;color:#f7f1e8;font-size:20px}.detail-qty input{width:40px;text-align:center;background:transparent;border:0;color:#f7f1e8;font:inherit}.detail-add{width:100%;margin-top:18px;background:#d4b477;color:#151412}.detail-note,.size-help{font-size:11px!important;color:#a69b89!important}.detail-note{text-align:center}.size-help{margin:5px 0}.product-modal .eyebrow{color:#d4b477;font-size:10px;letter-spacing:2px}@keyframes detailFloat{0%,100%{transform:translateY(2px) rotateY(-8deg)}50%{transform:translateY(-8px) rotateY(8deg)}}@media(max-width:680px){.product-modal{grid-template-columns:1fr;padding:18px;gap:16px;max-height:90vh}.detail-visual{min-height:210px;max-height:230px}.detail-visual svg{height:190px}.detail-info h2{font-size:23px}.product-modal-close{position:sticky;float:right;margin-bottom:-40px;top:0;right:0;justify-self:end}}
+
+/* Reference-inspired dark gold luxury storefront */
+:root{--ink:#f5e5c5;--muted:#c7b69a;--cream:#0d0e0d;--sand:#211a12;--rose:#d8b16b;--line:#3b3021;--white:#111210;--green:#d8b16b}
+html,body{background:#0b0c0b!important;color:#f7e8cb!important}
+body{font-family:Alexandria,Inter,Arial,sans-serif;background:radial-gradient(ellipse at 50% -10%,#282016 0%,#0b0c0b 52%)!important}
+.announcement{background:#17130e!important;color:#d9b877!important;border-bottom:1px solid #3a2e1c}
+.wrap{width:min(1160px,calc(100% - 40px))}
+.header{height:78px;border-bottom:1px solid #30291e!important}
+.brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:42px;letter-spacing:1px;color:#f7e8cb!important}
+.brand span{color:#d9b877!important}
+nav{color:#ead9b9!important}
+nav a:hover{color:#e7c37e!important}
+.cart-btn,.secondary{background:#121311!important;border:1px solid #51402a!important;color:#f0d6a3!important;border-radius:4px}
+.cart-btn:hover,.secondary:hover{background:#d8b16b!important;color:#17120a!important}
+.hero{width:100%;max-width:none;min-height:370px;padding:0 5.5%;gap:24px;grid-template-columns:1fr 1fr;border-bottom:1px solid #403321;background:linear-gradient(90deg,#11100d,#090a09)}
+.hero-copy{padding:35px 0}
+.eyebrow{color:#d8b16b!important}
+.hero h1{color:#f5dfb6!important;font-size:clamp(36px,4vw,58px)}
+.hero p{color:#e0d0b4!important}
+.primary{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(100deg,#f5dba7,#c79a53)!important;color:#17120b!important;border-radius:24px;padding:12px 28px;font-weight:700}
+.primary:hover{background:#f5dba7!important;transform:translateY(-2px)}
+.hero-art{height:340px;border-radius:0!important;background-image:url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1200&q=90')!important;background-size:cover!important;background-position:center!important;box-shadow:none!important}
+.hero-art:before,.hero-art:after{display:none!important}
+.hero-art .jewel-scene{display:none!important}
+.scene-stamp{background:#11100d99!important;color:#e7c37e!important;border:1px solid #d8b16b66!important}
+.categories{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:24px;margin:30px auto 40px!important;max-width:850px}
+.category-tile{min-height:142px;background:transparent!important;border:0!important;color:#f2e6d2!important;gap:12px}
+.category-tile:before{display:none!important}
+.category-tile svg{width:94px!important;height:94px!important;padding:16px;border:1px solid #d8b16b!important;border-radius:50%;stroke:#e1b96c!important;stroke-width:1.15!important}
+.category-tile span{font-size:16px!important;color:#f3e6d2!important}
+.category-tile:hover{transform:translateY(-3px);background:transparent!important}
+.section-head h2,.section-head h3{color:#f4e4c7!important}
+.section-head:after,.section-head:before{border-color:#d8b16b!important}
+#products{padding-bottom:36px}
+#product-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+.product{background:linear-gradient(145deg,#10110f,#090a09)!important;border:1px solid #4b3c29!important;border-radius:6px!important;padding:10px 10px 16px!important;color:#f6e7cd!important}
+.product-visual{height:230px!important;background:#d7c2a8!important;border-radius:3px!important}
+.product-visual:before{display:none!important}
+.product-visual .jewelry-photo{object-fit:cover!important}
+.product h3{color:#f5e5ca!important}
+.product .price{color:#e7c27d!important}
+.product .tag{background:#21180d!important;color:#e8c57f!important}
+.product button,.product .add-to-cart{background:linear-gradient(100deg,#f6dba4,#c89c55)!important;color:#17120a!important;border-radius:24px!important}
+.benefits,.benefit{background:transparent!important;color:#e7d8bd!important;border-color:#3b3021!important}
+footer{background:#090a09!important;border-top:1px solid #30271b!important;color:#e9d8b7!important}
+footer p,.footer-bottom{color:#c4b294!important}
+.social-follow{text-align:center;margin:24px auto!important}
+.social-follow h3{color:#f5e3c2!important}
+.social-links{justify-content:center!important;gap:18px!important}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 10px;border:1px solid #d8b16b;border-radius:50%;color:#e6c27c!important}
+.footer-bottom{border-top:1px solid #30271b!important}
+.drawer{background:#121310!important;color:#f3e3c4!important;border-left:1px solid #4b3b27!important}
+.drawer-head,.cart-item{border-color:#3d3020!important}
+.checkout-form input,.checkout-form textarea,.checkout-form select{background:#0b0c0b!important;color:#f6e7cb!important;border-color:#493b28!important}
+@media(max-width:700px){.hero{grid-template-columns:1fr!important;padding:25px 20px!important;gap:12px!important}.hero-copy{padding:10px 0!important}.hero-art{height:220px!important;order:-1}.categories{gap:8px!important;margin:22px auto 30px!important}.category-tile{min-height:110px!important}.category-tile svg{width:70px!important;height:70px!important;padding:13px!important}.category-tile span{font-size:13px!important}#product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}.product-visual{height:155px!important}.product{padding:7px!important}.product h3{font-size:13px!important}.header{gap:8px!important}.brand{font-size:34px!important}nav{gap:10px!important;font-size:12px!important}.cart-btn{padding:8px!important;font-size:11px!important}}
+
 </style>
 </head>
 <body>
@@ -139,7 +195,7 @@ let products=[
 {slug:"style-ring",name:"خاتم ستايل",desc:"قطعة صغيرة بتأثير كبير",price:250,tag:"",bg:"#d9dfd2",kind:"ring"}
 ];
 const money=n=>new Intl.NumberFormat(currentLanguage==="en"?"en-EG":"ar-EG",{maximumFractionDigits:0}).format(n)+(currentLanguage==="en"?" EGP":" ج.م");
-const art=(kind)=>{const photos={earring:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85",necklace:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85",bracelet:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85",ring:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"};return '<img class="jewelry-photo" src="'+(photos[kind]||photos.earring)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'};
+const art=(kind)=>{const photos={earring:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85",necklace:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85",bracelet:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85",ring:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"};return '<img class="jewelry-photo" src="'+(photos[kind]||photos.earring)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'};
 const defaults={earrings:{bg:"#ead7c4",kind:"earring",tag:"اختيارنا"},necklaces:{bg:"#e6e0d2",kind:"necklace",tag:"الأكثر طلبًا"},bracelets:{bg:"#e6d3ce",kind:"bracelet",tag:"جديد"},rings:{bg:"#d9dfd2",kind:"ring",tag:""},hair:{bg:"#e6d3ce",kind:"bracelet",tag:""},sunglasses:{bg:"#e6e0d2",kind:"earring",tag:""}};
 let activeCategory="all";function renderProducts(){const grid=document.getElementById("product-grid");const visible=activeCategory==="all"?products.slice(0,4):products.filter(p=>p.kind===activeCategory||p.category===activeCategory);grid.innerHTML=visible.map(p=>'<article class="product" data-product="'+p.slug+'" tabindex="0" role="button" aria-label="تفاصيل '+p.name+'"><div class="product-visual" style="--bg:'+p.bg+'">'+(p.tag?'<span class="tag">'+p.tag+'</span>':'')+art(p.kind)+'</div><h3>'+p.name+'</h3><p class="desc">'+p.desc+'</p><div class="product-bottom"><span class="price">'+money(p.price)+'</span><button class="add" data-add="'+p.slug+'">اختاري التفاصيل</button></div></article>').join("");if(typeof setLanguage==="function")setLanguage(currentLanguage)}
 async function loadCatalog(){try{const res=await fetch(SUPABASE_URL+"/rest/v1/products?select=slug,name_ar,description_ar,price_egp,category,is_active&is_active=eq.true&order=created_at.asc",{headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:"Bearer "+SUPABASE_PUBLISHABLE_KEY}});if(!res.ok)throw new Error("catalog");const rows=await res.json();if(!Array.isArray(rows)||!rows.length)throw new Error("empty");products=rows.map(p=>{const d=defaults[p.category]||defaults.earrings;return {slug:p.slug,name:p.name_ar,desc:p.description_ar||"",price:Number(p.price_egp),tag:d.tag,bg:d.bg,kind:d.kind,category:p.category}});renderProducts();renderCart();setLanguage(currentLanguage)}catch(e){/* Keep the local catalogue visible if the database is temporarily unavailable. */}}
