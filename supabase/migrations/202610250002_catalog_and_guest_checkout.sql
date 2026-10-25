@@ -90,3 +90,10 @@ end;
 $$;
 revoke all on function public.create_guest_order(text, text, text, text, text, jsonb) from public, anon, authenticated;
 grant execute on function public.create_guest_order(text, text, text, text, text, jsonb) to service_role;
+
+drop policy if exists "No public access to orders" on public.orders;
+create policy "No public access to orders" on public.orders
+  for all to anon, authenticated using (false) with check (false);
+drop policy if exists "No public access to order items" on public.order_items;
+create policy "No public access to order items" on public.order_items
+  for all to anon, authenticated using (false) with check (false);
