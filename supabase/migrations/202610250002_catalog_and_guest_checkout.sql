@@ -97,3 +97,7 @@ create policy "No public access to orders" on public.orders
 drop policy if exists "No public access to order items" on public.order_items;
 create policy "No public access to order items" on public.order_items
   for all to anon, authenticated using (false) with check (false);
+
+create index if not exists idx_order_items_order_id on public.order_items(order_id);
+create index if not exists idx_order_items_product_id on public.order_items(product_id);
+create index if not exists idx_orders_created_at on public.orders(created_at desc);
