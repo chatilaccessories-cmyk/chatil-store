@@ -281,6 +281,7 @@ function setLanguage(language){
  });
  document.querySelectorAll(".category-tile span").forEach((el,i)=>{const ar=["قلادات","خواتم","أساور","حلق","ساعات","نظارات"][i],en=["Necklaces","Rings","Bracelets","Earrings","Watches","Sunglasses"][i];el.textContent=language==="en"?en:ar;});
  const footerLine=document.querySelector(".footer-top p");if(footerLine)footerLine.textContent=language==="en"?"Accessories with a difference — from Egypt, for you.":"إكسسوارات بتفاصيل تفرق — من مصر، ليكي.";
+ const socialHeading=document.querySelector(".social-follow h3");if(socialHeading)socialHeading.textContent=language==="en"?"Follow Us":"تابعونا";
  document.querySelectorAll(".checkout-form label").forEach(label=>{const input=label.querySelector("input,select,textarea");if(!input)return;const ar=label.dataset.arLabelText||label.childNodes[0]?.textContent?.trim();if(ar)label.dataset.arLabelText=ar;if(language==="en"){const map={"الاسم بالكامل":"Full Name","رقم الموبايل":"Phone Number","المحافظة":"Governorate","العنوان بالتفصيل":"Full Address","ملاحظات (اختياري)":"Notes (optional)"};if(map[ar])label.childNodes[0].textContent=map[ar]+" ";}else if(ar){label.childNodes[0].textContent=ar+" ";}});
  document.title=language==="en"?"Chatil Accessories — Details in Gold":"Chatil Accessories — تفاصيل من ذهب";
 }
