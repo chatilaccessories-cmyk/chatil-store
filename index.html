@@ -265,6 +265,8 @@ document.querySelectorAll(".product").forEach(card=>{card.addEventListener("poin
 const heroArt=document.querySelector(".hero-art"),jewelScene=document.querySelector(".jewel-scene"),heroJewel=heroArt?.querySelector(".jewel-scene svg");if(heroArt&&jewelScene){let scrollFrame=0;const updateJewelScroll=()=>{scrollFrame=0;if(!heroJewel||matchMedia("(prefers-reduced-motion: reduce)").matches)return;const rect=heroArt.getBoundingClientRect(),vh=window.innerHeight||800;const progress=Math.max(0,Math.min(1,(vh-rect.top)/(vh+rect.height)));heroJewel.style.setProperty("--scroll-shift",((progress-.15)*105).toFixed(1)+"px");heroJewel.style.setProperty("--scroll-rotate",((progress-.15)*54).toFixed(1)+"deg");heroJewel.style.setProperty("--scroll-scale",(1+Math.sin(progress*Math.PI)*.12).toFixed(3))};const requestJewelScroll=()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(updateJewelScroll)};window.addEventListener("scroll",requestJewelScroll,{passive:true});window.addEventListener("resize",requestJewelScroll);updateJewelScroll();heroArt.addEventListener("pointermove",e=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches||innerWidth<801)return;const r=heroArt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;heroArt.style.transform="rotateX("+((.5-y)*3)+"deg) rotateY("+((x-.5)*4)+"deg)";jewelScene.style.translate=((x-.5)*10)+"px "+((y-.5)*8)+"px"});heroArt.addEventListener("pointerleave",()=>{heroArt.style.transform="";jewelScene.style.translate=""})}
 </script>
 </body></html>
+<style>
+
 
 /* Luxury reference match: circular photo categories, premium product cards, gold cart buttons */
 .categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:30px auto 42px}
@@ -295,3 +297,5 @@ const heroArt=document.querySelector(".hero-art"),jewelScene=document.querySelec
 .product .tag{background:#d7b477;color:#17110a;border-radius:999px;font-weight:700}
 .add{font-size:13px;min-width:190px}
 @media(max-width:800px){.category-tile .category-lux-photo{padding:7px}.product-visual{padding:7px}.add{min-width:0;width:100%}}
+
+</style>
