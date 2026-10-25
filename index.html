@@ -90,7 +90,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </style>
 </head>
 <body>
-<div class="announcement">نسخة تجريبية · المنتجات والأسعار الحالية للاختبار · سوق مصر</div>
+<div class="announcement">الشحن متاح لجميع أنحاء الجمهورية · الدفع عند الاستلام</div>
 <header class="wrap header">
 <a class="brand" href="#" aria-label="Chatil الصفحة الرئيسية">chatil<span>.</span></a>
 <nav aria-label="القائمة الرئيسية"><a href="#products">تسوّقي</a><a href="#story">حكايتنا</a></nav>
@@ -105,7 +105,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <section class="wrap benefits" aria-label="مميزات Chatil"><div class="benefit"><b>اختيارات مميزة</b>تفاصيل لكل ستايل</div><div class="benefit"><b>تجربة سهلة</b>تسوّقي من موبايلك</div><div class="benefit"><b>بالجنيه المصري</b>أسعار واضحة من البداية</div></section>
 <section class="wrap categories reveal" aria-label="تسوّقي حسب الفئة"><a class="category-tile" href="#products"><svg viewBox="0 0 40 40"><path d="M20 7c-8 0-12 7-9 14l9 13 9-13c3-7-1-14-9-14Z"/><path d="M20 7v27"/></svg><span>قلادات</span></a><a class="category-tile" href="#products"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="10" ry="14"/><ellipse cx="20" cy="20" rx="6" ry="10"/></svg><span>خواتم</span></a><a class="category-tile" href="#products"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="13" ry="9" transform="rotate(-24 20 20)"/><path d="m25 27 4 4"/></svg><span>أساور</span></a><a class="category-tile" href="#products"><svg viewBox="0 0 40 40"><path d="M13 8c-6 0-8 8-4 13l11 11 11-11c4-5 2-13-4-13-4 0-6 3-7 5-1-2-3-5-7-5Z"/></svg><span>حلق</span></a><a class="category-tile" href="#products"><svg viewBox="0 0 40 40"><path d="M7 14Q20 1 33 14L28 19Q20 11 12 19Z"/><path d="M12 18Q20 26 28 18L25 31H15Z"/></svg><span>إكسسوارات شعر</span></a><a class="category-tile" href="#products"><svg viewBox="0 0 40 40"><path d="M5 14Q20 5 35 14L30 27H10Z"/><path d="M5 14l-3 3 8 3M35 14l3 3-8 3M15 27l-2 6M25 27l2 6"/></svg><span>نظارات</span></a></section>
 <section class="wrap reveal" id="products">
-<div class="section-head"><div><div class="eyebrow">THE EDIT</div><h2>اختياراتنا ليكي</h2></div><p>القطع والأسعار المعروضة حاليًا تجريبية للاختبار.</p></div>
+<div class="section-head"><div><div class="eyebrow">THE EDIT</div><h2>اختياراتنا ليكي</h2></div><p>قطع مختارة بعناية، والشحن متاح لكل أنحاء مصر.</p></div>
 <div class="products" id="product-grid"></div>
 </section>
 <section class="wrap story reveal" id="story"><div class="story-art" aria-hidden="true">C.</div><div><div class="eyebrow">THE CHATIL STORY</div><h2>ستايلك هو الحكاية.</h2><p>في Chatil بنؤمن إن اللمسات البسيطة هي اللي بتصنع الفرق. بنختار قطع تقدري تنسّقيها بطريقتك وتلبسيها على مزاجك، كل يوم بشكل جديد.</p><a class="secondary" href="#products">اختاري لمستك</a></div></section>
@@ -158,12 +158,12 @@ document.getElementById("back-to-cart").addEventListener("click",()=>{checkoutFo
 checkoutForm.addEventListener("submit",async e=>{e.preventDefault();const submit=document.getElementById("submit-order");submit.disabled=true;submit.textContent="جاري تأكيد الطلب…";feedback.hidden=true;feedback.classList.remove("error");try{const fd=new FormData(checkoutForm);const payload={customer_name:fd.get("customer_name"),phone:fd.get("phone"),governorate:fd.get("governorate"),address:fd.get("address"),notes:fd.get("notes"),website:fd.get("website"),items:Object.values(cart).map(item=>({slug:item.product.slug,quantity:item.qty})),notes:[fd.get("notes"),"اختيارات المنتجات: "+Object.values(cart).map(item=>item.product.name+" × "+item.qty+" ("+[item.color,item.style,item.size].filter(Boolean).join("، ")+")").join("؛ ")].filter(Boolean).join("\n")};const res=await fetch(SUPABASE_URL+"/functions/v1/create-order",{method:"POST",headers:{"Content-Type":"application/json",apikey:SUPABASE_PUBLISHABLE_KEY},body:JSON.stringify(payload)});const data=await res.json().catch(()=>({}));if(!res.ok||!data.ok)throw new Error(data.error||"order_not_created");cart={};renderCart();checkoutForm.reset();checkoutForm.hidden=true;checkoutButton.hidden=false;document.getElementById("cart-items").style.display="block";feedback.textContent="تم استلام طلبك بنجاح ♡ رقم الطلب: "+String(data.order_id).slice(0,8).toUpperCase()+" — إجمالي المنتجات "+money(data.total_egp)+"، والشحن يُحدد عند التأكيد. الدفع عند الاستلام.";feedback.hidden=false;notify("طلبك اتسجل بنجاح ♡")}catch(err){feedback.textContent=err.message==="invalid_phone"?"راجعي رقم الموبايل وحاولي تاني.":"ماقدرناش نسجل الطلب دلوقتي. راجعي البيانات وحاولي تاني.";feedback.classList.add("error");feedback.hidden=false}finally{submit.disabled=false;submit.textContent="تأكيد الطلب — الدفع عند الاستلام"}});
 
 const translations={
-"نسخة تجريبية · المنتجات والأسعار الحالية للاختبار · سوق مصر":"Shipping across all of Egypt",
+"الشحن متاح لجميع أنحاء الجمهورية · الدفع عند الاستلام":"Shipping across Egypt · Cash on delivery",
 "تسوّقي":"Shop","حكايتنا":"Our Story","خليكي قريبة":"Stay Connected","السلة":"Cart",
 "الفخامة في":"Luxury in","أدق التفاصيل.":"Every Detail.","قطع مختارة تعكس ذوقك، ولمسات ذهبية تضيف حضور مختلف لكل إطلالة. اكتشفي عالم Chatil.":"Curated pieces that reflect your taste, with golden touches that elevate every look. Discover Chatil.",
 "اكتشفي المجموعة":"Explore the Collection","اختيارات مميزة":"Distinctive Pieces","تفاصيل لكل ستايل":"Details for Every Style","تجربة سهلة":"An Easy Experience","تسوّقي من موبايلك":"Shop from Your Phone","بالجنيه المصري":"Priced in EGP","أسعار واضحة من البداية":"Clear Prices from the Start",
 "قلادات":"Necklaces","خواتم":"Rings","أساور":"Bracelets","حلق":"Earrings","إكسسوارات شعر":"Hair Accessories","نظارات":"Sunglasses",
-"اختياراتنا ليكي":"Curated for You","القطع والأسعار المعروضة حاليًا تجريبية للاختبار.":"Displayed products and prices are for testing.",
+"اختياراتنا ليكي":"Curated for You","قطع مختارة بعناية، والشحن متاح لكل أنحاء مصر.":"Thoughtfully selected pieces, shipped across Egypt.",
 "ستايلك هو الحكاية.":"Your Style, Your Story.","في Chatil بنؤمن إن اللمسات البسيطة هي اللي بتصنع الفرق. بنختار قطع تقدري تنسّقيها بطريقتك وتلبسيها على مزاجك، كل يوم بشكل جديد.":"At Chatil, we believe small details make all the difference. We choose pieces you can style your way, every day.",
 "اختاري لمستك":"Find Your Touch","خليكي أول واحدة تعرف":"Be the First to Know","قريبًا، جديد Chatil هيوصلك أول بأول.":"New from Chatil, coming soon to your inbox.","بريدك الإلكتروني":"Your email address","سجّليني":"Sign Me Up",
 "إكسسوارات بتفاصيل تفرق — من مصر، ليكي.":"Accessories with a difference — from Egypt, for you.","كل الحقوق محفوظة.":"All rights reserved.","صُنع بحب ♡":"Made with love ♡",
@@ -180,6 +180,28 @@ const translations={
 "القاهرة":"Cairo","الجيزة":"Giza","الإسكندرية":"Alexandria","القليوبية":"Qalyubia","البحيرة":"Beheira","مطروح":"Matrouh","كفر الشيخ":"Kafr El Sheikh","الغربية":"Gharbia","المنوفية":"Monufia","الدقهلية":"Dakahlia","دمياط":"Damietta","بورسعيد":"Port Said","الإسماعيلية":"Ismailia","السويس":"Suez","الشرقية":"Sharqia","شمال سيناء":"North Sinai","جنوب سيناء":"South Sinai","بني سويف":"Beni Suef","الفيوم":"Fayoum","المنيا":"Minya","أسيوط":"Assiut","سوهاج":"Sohag","قنا":"Qena","الأقصر":"Luxor","أسوان":"Aswan","البحر الأحمر":"Red Sea","الوادي الجديد":"New Valley"
 };
 
+Object.assign(translations,{
+"اختاري التفاصيل":"Choose options",
+"تفاصيل":"Details",
+"اختاري مقاس الخاتم الأول ♡":"Please choose a ring size first ♡",
+"اتضافت للسلة بالتفاصيل المختارة ♡":"Added to cart with selected options ♡",
+"تفاصيل القطع غير متاحة":"Item details unavailable",
+"اللون":"Color",
+"الشكل / التصميم":"Style / Design",
+"مقاس الخاتم":"Ring size",
+"اختاري المقاس":"Choose a size",
+"مقاس 5":"Size 5","مقاس 6":"Size 6","مقاس 7":"Size 7","مقاس 8":"Size 8","مقاس 9":"Size 9","مقاس 10":"Size 10",
+"مش عارفة مقاسي":"I don't know my size",
+"لو مش عارفة مقاسك اختاري «مش عارفة مقاسي» واكتبي لنا في الملاحظات":"If you don't know your size, choose “I don't know my size” and leave us a note",
+"الكمية":"Quantity",
+"أضيفي للسلة":"Add to Cart",
+"اختاري اللون والتصميم والمقاس قبل الإضافة للسلة":"Choose color, style, and size before adding to cart",
+"ذهبي":"Gold","فضي":"Silver","روز جولد":"Rose Gold","أسود":"Black",
+"ناعم":"Delicate","فص صغير":"Small Stone","فص كبير":"Large Stone","مفتوح":"Open",
+"رفيع":"Slim","عريض":"Wide","سلسلة":"Chain","قصير":"Short","متوسط":"Medium","طويل":"Long","بقلادة":"With Pendant",
+"حلق دائري":"Hoop Earrings","حلق متدلّي":"Drop Earrings","حلق صغير":"Small Earrings","حلق كبير":"Large Earrings",
+"الشحن متاح لجميع أنحاء الجمهورية · الدفع عند الاستلام":"Shipping across Egypt · Cash on delivery"
+});
 Object.assign(translations,{"تقليل الكمية":"Decrease quantity","زيادة الكمية":"Increase quantity","افتح سلة التسوق":"Open shopping cart","إغلاق السلة":"Close cart","الصفحة الرئيسية":"Home","القائمة الرئيسية":"Main navigation","مميزات Chatil":"Why Chatil","تسوّقي حسب الفئة":"Shop by category","للقطعة":"per item","اتضافت للسلة ♡":"Added to cart ♡","نسخة تجريبية · المنتجات والأسعار الحالية للاختبار · سوق مصر":"Shipping across all of Egypt"});
 const originalText=new Map();
 let currentLanguage="en";
