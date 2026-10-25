@@ -94,6 +94,46 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .category-tile{gap:8px!important}
 @media(max-width:800px){.category-tile .category-lux-photo{width:76px;height:72px;filter:contrast(1.18) saturate(1.3) brightness(1.04) drop-shadow(0 4px 6px #0009)}}
 
+
+/* Match every category icon to the transparent earring cutout style */
+.category-tile .category-lux-photo{display:block!important;width:clamp(92px,12vw,142px)!important;height:clamp(92px,12vw,142px)!important;object-fit:contain!important;object-position:center!important;padding:8px!important;background:transparent!important;border:1px solid #c6a36a!important;border-radius:50%!important;mix-blend-mode:normal!important;filter:drop-shadow(0 5px 8px #0009) saturate(1.12) contrast(1.06)!important;}
+.product-visual{display:flex!important;align-items:center!important;justify-content:center!important;background:radial-gradient(ellipse at center,#1c1914,#0d0c0a 72%)!important;padding:12px!important;}
+.product-visual img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;background:transparent!important;mix-blend-mode:normal!important;filter:drop-shadow(0 8px 12px #0009) saturate(1.12) contrast(1.06)!important;}
+@media(max-width:800px){.category-tile .category-lux-photo{width:76px!important;height:76px!important;padding:6px!important}.product-visual{padding:7px!important}}
+
+
+
+/* Luxury reference match: circular photo categories, premium product cards, gold cart buttons */
+.categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:30px auto 42px}
+.category-tile{min-height:0;gap:10px;background:transparent;border:0;padding:0 0 8px;overflow:visible}
+.category-tile:before{display:none}
+.category-tile .category-lux-photo{width:clamp(92px,12vw,142px);height:clamp(92px,12vw,142px);padding:10px;object-fit:contain;border:1px solid #c6a36a;border-radius:50%;background:radial-gradient(circle at 50% 35%,#292219,#0d0c0a 76%);mix-blend-mode:normal;filter:contrast(1.12) saturate(1.2);transition:transform .25s,border-color .25s;opacity:1}
+.category-tile:hover .category-lux-photo{transform:scale(1.04);border-color:#f0d39a}
+.category-tile span{font-size:clamp(13px,1.3vw,17px);color:#f4eee4;margin-top:2px}
+.product{background:linear-gradient(145deg,#171512,#0d0c0a);padding:9px 9px 17px;border:1px solid #55452e;border-radius:9px;color:#f5eee3;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s}
+.product:hover{border-color:#b9975b;transform:translateY(-2px);box-shadow:0 12px 28px #0005}
+.product-visual{height:clamp(170px,22vw,260px);border-radius:6px;background:#100f0d;overflow:hidden}
+.product-visual:before{display:none}
+.product-visual img{width:100%;height:100%;object-fit:cover;display:block}
+.product h3{color:#f6eee2;font-size:15px;margin:13px 7px 5px;text-align:center}
+.product .desc{color:#bcb1a0;text-align:center}
+.product-bottom{justify-content:center;flex-wrap:wrap;gap:12px;margin:8px 5px 0}
+.price{color:#f7eee1;font-size:16px}
+.add,.cart-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #d8b476;border-radius:999px;background:linear-gradient(110deg,#f4d59b,#c99a50);color:#17110a;padding:11px 20px;font-size:13px;font-weight:700;box-shadow:inset 0 1px #fff8;transition:filter .2s,transform .2s}
+.add:hover,.cart-btn:hover{background:linear-gradient(110deg,#ffe4b0,#d4a75e);color:#17110a;border-color:#f1d6a0;filter:brightness(1.04);transform:translateY(-1px)}
+@media(max-width:800px){.categories{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:22px auto 34px}.category-tile .category-lux-photo{width:clamp(66px,19vw,100px);height:clamp(66px,19vw,100px);padding:7px}.category-tile span{font-size:12px}.product{padding:7px 7px 13px}.product-visual{height:clamp(145px,34vw,220px)}.add,.cart-btn{width:90%;padding:10px 9px;font-size:12px}.product-bottom{gap:9px}}
+
+/* Transparent cutout presentation and premium product cards */
+.category-tile{background:transparent!important;border:0!important}
+.category-tile .category-lux-photo{background:transparent!important;border:1px solid #c6a36a!important;border-radius:50%;padding:10px;object-fit:contain;mix-blend-mode:normal!important;filter:drop-shadow(0 7px 8px #0009) saturate(1.15) contrast(1.08)!important}
+.product-visual{display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#1c1914,#0d0c0a 72%)!important;padding:12px}
+.product-visual img{position:relative;width:100%;height:100%;object-fit:contain;mix-blend-mode:normal;filter:drop-shadow(0 8px 12px #0009) saturate(1.12) contrast(1.06)}
+.product-visual:before{display:none!important}
+.product .tag{background:#d7b477;color:#17110a;border-radius:999px;font-weight:700}
+.add{font-size:13px;min-width:190px}
+@media(max-width:800px){.category-tile .category-lux-photo{padding:7px}.product-visual{padding:7px}.add{min-width:0;width:100%}}
+
+
 </style>
 </head>
 <body>
@@ -160,7 +200,7 @@ const detailModal=document.getElementById("product-modal"),detailBackdrop=docume
 const categoryPhotos=[
 {src:"https://toppng.com/uploads/preview/gold-pendant-11530924736kg3bnk0hkz.png",alt:"Gold snake pendant necklace"},
 {src:"https://toppng.com/uploads/preview/diamond-ring-jewelry-brilliant-koltso-ukrashenie-gold-diamond-ring-11563383452jbdoofk0hl.png",alt:"Gold ring with gemstone"},
-{src:"https://favpng.com/png_view/gold-bracelet-bangle-gold-jewellery-jewelry-design-png/cGW4UJG0",alt:"Gold chain bracelet"},
+{src:"https://img.magnific.com/premium-psd/luxurious-gold-cuban-link-chain-bracelet-men-women_1043913-19976.jpg?q=80&semt=ais_hybrid&w=740",alt:"Gold chain bracelet"},
 {src:"https://www.pngall.com/wp-content/uploads/15/Hoop-Earrings-PNG-Free-Image.png",alt:"Gold hoop earrings"},
 {src:"https://media.douglas.nl/medias/https-media-prod-eu-1.mirakl.net-SOURCE-4ed7414f5e704e59af00267e34c487f6.png?context=bWFzdGVyfGltYWdlc3w0NjUwMzV8aW1hZ2UvcG5nfGFHUTBMMmcwWlM4eE5ETTBOemt3TnpRMk5USTBOaTlvZEhSd2N6b3ZMMjFsWkdsaExYQnliMlF0WlhVdE1TNXRhWEpoYTJ3dWJtVjBMMU5QVlZKRFJTODBaV1EzTkRFMFpqVmxOekEwWlRVNVlXWXdNREkyTjJVek5HTTBPRGRtTmd8NzM3NDA3MGVkZGU0NjRmZjk4N2IyNmY4Mzg0ZGEzNWQ1NjE2MWFhOTZmZmJiOTcxM2EwNDkwZTQwNTA3YmVlMA&grid=true",alt:"Gold hair clip"},
 {src:"https://toppng.com/uploads/preview/persol-round-sunglasses-115688732458pi1fxz87a.png",alt:"Gold frame sunglasses"}
@@ -265,43 +305,3 @@ document.querySelectorAll(".product").forEach(card=>{card.addEventListener("poin
 const heroArt=document.querySelector(".hero-art"),jewelScene=document.querySelector(".jewel-scene"),heroJewel=heroArt?.querySelector(".jewel-scene svg");if(heroArt&&jewelScene){let scrollFrame=0;const updateJewelScroll=()=>{scrollFrame=0;if(!heroJewel||matchMedia("(prefers-reduced-motion: reduce)").matches)return;const rect=heroArt.getBoundingClientRect(),vh=window.innerHeight||800;const progress=Math.max(0,Math.min(1,(vh-rect.top)/(vh+rect.height)));heroJewel.style.setProperty("--scroll-shift",((progress-.15)*105).toFixed(1)+"px");heroJewel.style.setProperty("--scroll-rotate",((progress-.15)*54).toFixed(1)+"deg");heroJewel.style.setProperty("--scroll-scale",(1+Math.sin(progress*Math.PI)*.12).toFixed(3))};const requestJewelScroll=()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(updateJewelScroll)};window.addEventListener("scroll",requestJewelScroll,{passive:true});window.addEventListener("resize",requestJewelScroll);updateJewelScroll();heroArt.addEventListener("pointermove",e=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches||innerWidth<801)return;const r=heroArt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;heroArt.style.transform="rotateX("+((.5-y)*3)+"deg) rotateY("+((x-.5)*4)+"deg)";jewelScene.style.translate=((x-.5)*10)+"px "+((y-.5)*8)+"px"});heroArt.addEventListener("pointerleave",()=>{heroArt.style.transform="";jewelScene.style.translate=""})}
 </script>
 </body></html>
-<style>
-/* Match every category icon to the transparent earring cutout style */
-.category-tile .category-lux-photo{display:block!important;width:clamp(92px,12vw,142px)!important;height:clamp(92px,12vw,142px)!important;object-fit:contain!important;object-position:center!important;padding:8px!important;background:transparent!important;border:1px solid #c6a36a!important;border-radius:50%!important;mix-blend-mode:normal!important;filter:drop-shadow(0 5px 8px #0009) saturate(1.12) contrast(1.06)!important;}
-.product-visual{display:flex!important;align-items:center!important;justify-content:center!important;background:radial-gradient(ellipse at center,#1c1914,#0d0c0a 72%)!important;padding:12px!important;}
-.product-visual img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;background:transparent!important;mix-blend-mode:normal!important;filter:drop-shadow(0 8px 12px #0009) saturate(1.12) contrast(1.06)!important;}
-@media(max-width:800px){.category-tile .category-lux-photo{width:76px!important;height:76px!important;padding:6px!important}.product-visual{padding:7px!important}}
-
-
-
-/* Luxury reference match: circular photo categories, premium product cards, gold cart buttons */
-.categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:30px auto 42px}
-.category-tile{min-height:0;gap:10px;background:transparent;border:0;padding:0 0 8px;overflow:visible}
-.category-tile:before{display:none}
-.category-tile .category-lux-photo{width:clamp(92px,12vw,142px);height:clamp(92px,12vw,142px);padding:10px;object-fit:contain;border:1px solid #c6a36a;border-radius:50%;background:radial-gradient(circle at 50% 35%,#292219,#0d0c0a 76%);mix-blend-mode:normal;filter:contrast(1.12) saturate(1.2);transition:transform .25s,border-color .25s;opacity:1}
-.category-tile:hover .category-lux-photo{transform:scale(1.04);border-color:#f0d39a}
-.category-tile span{font-size:clamp(13px,1.3vw,17px);color:#f4eee4;margin-top:2px}
-.product{background:linear-gradient(145deg,#171512,#0d0c0a);padding:9px 9px 17px;border:1px solid #55452e;border-radius:9px;color:#f5eee3;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s}
-.product:hover{border-color:#b9975b;transform:translateY(-2px);box-shadow:0 12px 28px #0005}
-.product-visual{height:clamp(170px,22vw,260px);border-radius:6px;background:#100f0d;overflow:hidden}
-.product-visual:before{display:none}
-.product-visual img{width:100%;height:100%;object-fit:cover;display:block}
-.product h3{color:#f6eee2;font-size:15px;margin:13px 7px 5px;text-align:center}
-.product .desc{color:#bcb1a0;text-align:center}
-.product-bottom{justify-content:center;flex-wrap:wrap;gap:12px;margin:8px 5px 0}
-.price{color:#f7eee1;font-size:16px}
-.add,.cart-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #d8b476;border-radius:999px;background:linear-gradient(110deg,#f4d59b,#c99a50);color:#17110a;padding:11px 20px;font-size:13px;font-weight:700;box-shadow:inset 0 1px #fff8;transition:filter .2s,transform .2s}
-.add:hover,.cart-btn:hover{background:linear-gradient(110deg,#ffe4b0,#d4a75e);color:#17110a;border-color:#f1d6a0;filter:brightness(1.04);transform:translateY(-1px)}
-@media(max-width:800px){.categories{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:22px auto 34px}.category-tile .category-lux-photo{width:clamp(66px,19vw,100px);height:clamp(66px,19vw,100px);padding:7px}.category-tile span{font-size:12px}.product{padding:7px 7px 13px}.product-visual{height:clamp(145px,34vw,220px)}.add,.cart-btn{width:90%;padding:10px 9px;font-size:12px}.product-bottom{gap:9px}}
-
-/* Transparent cutout presentation and premium product cards */
-.category-tile{background:transparent!important;border:0!important}
-.category-tile .category-lux-photo{background:transparent!important;border:1px solid #c6a36a!important;border-radius:50%;padding:10px;object-fit:contain;mix-blend-mode:normal!important;filter:drop-shadow(0 7px 8px #0009) saturate(1.15) contrast(1.08)!important}
-.product-visual{display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#1c1914,#0d0c0a 72%)!important;padding:12px}
-.product-visual img{position:relative;width:100%;height:100%;object-fit:contain;mix-blend-mode:normal;filter:drop-shadow(0 8px 12px #0009) saturate(1.12) contrast(1.06)}
-.product-visual:before{display:none!important}
-.product .tag{background:#d7b477;color:#17110a;border-radius:999px;font-weight:700}
-.add{font-size:13px;min-width:190px}
-@media(max-width:800px){.category-tile .category-lux-photo{padding:7px}.product-visual{padding:7px}.add{min-width:0;width:100%}}
-
-</style>
