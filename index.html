@@ -95,15 +95,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:800px){.category-tile .category-lux-photo{width:76px;height:72px;filter:contrast(1.18) saturate(1.3) brightness(1.04) drop-shadow(0 4px 6px #0009)}}
 
 
-/* Requested clean, text-first storefront */
-.hero-art,.story-art,.product-visual,.category-lux-photo{display:none!important}
-.hero{grid-template-columns:1fr;min-height:0;padding-block:54px}
+/* Clean storefront with the animated 3D hero restored */
+.story-art,.category-lux-photo{display:none!important}
+.hero-art{display:block!important;min-height:520px!important;height:520px!important}
+.hero{grid-template-columns:.9fr 1.1fr;min-height:570px;padding-block:0}
 .story{grid-template-columns:1fr}
-.product{padding:22px 18px}
 .product .tag{position:static;display:inline-block;margin-bottom:8px}
 .category-tile svg,.category-tile .category-lux-icon{width:22px!important;height:22px!important;max-width:22px;max-height:22px}
 .category-tile{gap:5px!important}
-@media(max-width:800px){.hero{padding-block:36px}.product{padding:16px 12px}}
+.product-visual{height:280px!important}
+@media(max-width:800px){.hero{grid-template-columns:1fr;min-height:auto;padding-block:30px}.hero-art{height:310px!important;min-height:310px!important}.product-visual{height:215px!important}.product{padding:16px 12px}}
 
 
 /* Category row: six compact circles on one line */
@@ -200,6 +201,7 @@ const translations={
 "الفخامة في":"Luxury in","أدق التفاصيل.":"Every Detail.","قطع مختارة تعكس ذوقك، ولمسات ذهبية تضيف حضور مختلف لكل إطلالة. اكتشفي عالم Chatil.":"Curated pieces that reflect your taste, with golden touches that elevate every look. Discover Chatil.",
 "اكتشفي المجموعة":"Explore the Collection","اختيارات مميزة":"Distinctive Pieces","تفاصيل لكل ستايل":"Details for Every Style","تجربة سهلة":"An Easy Experience","تسوّقي من موبايلك":"Shop from Your Phone","بالجنيه المصري":"Priced in EGP","أسعار واضحة من البداية":"Clear Prices from the Start",
 "قلادات":"Necklaces","خواتم":"Rings","أساور":"Bracelets","حلق":"Earrings","إكسسوارات شعر":"Hair Accessories","ساعات":"Watches","نظارات":"Sunglasses","ساعات":"Watches",
+"لمستك الجاية مستنياكي":"Your Next Favorite Piece","اختاري القطعة اللي شبهك وكمّلي طلبك بسهولة، من غير تسجيل حساب أو بريد إلكتروني":"Choose the piece that feels like you and place your order easily — no account or email required.","تسوّقي دلوقتي":"Shop Now",
 "اختياراتنا ليكي":"Curated for You","قطع مختارة بعناية، والشحن متاح لكل أنحاء مصر.":"Thoughtfully selected pieces, shipped across Egypt.",
 "ستايلك هو الحكاية.":"Your Style, Your Story.","في Chatil بنؤمن إن اللمسات البسيطة هي اللي بتصنع الفرق. بنختار قطع تقدري تنسّقيها بطريقتك وتلبسيها على مزاجك، كل يوم بشكل جديد.":"At Chatil, we believe small details make all the difference. We choose pieces you can style your way, every day.",
 "اختاري لمستك":"Find Your Touch","خليكي أول واحدة تعرف":"Be the First to Know","قريبًا، جديد Chatil هيوصلك أول بأول.":"New from Chatil, coming soon to your inbox.","بريدك الإلكتروني":"Your email address","سجّليني":"Sign Me Up",
