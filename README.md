@@ -23,6 +23,7 @@ Responsive Arabic RTL storefront for Chatil Accessories, tailored for customers 
 - Supabase project: `jqifcdgfdbxespfuztzn`
 - Supabase region: Mumbai (`ap-south-1`)
 - Vercel project: `chatil-store`
+- Storefront URL: `https://chatil-store.vercel.app`
 - GitHub: `https://github.com/chatilaccessories-cmyk/chatil-store`
 
 No service-role key or other secret is committed to this repository. The Supabase publishable key used by the storefront is intended for public clients; access is controlled by RLS and database grants.
